@@ -57,6 +57,12 @@ apiApp.post("/api/friends", (req, res) => {
 	})
 })
 
+apiApp.get("/api/friends", (req, res) =>  {
+	fs.readFile(path.join(__dirname,"../data/friends.js"),"utf8", (err, data) => {
+		res.json(JSON.parse(data));
+	})
+})
+
 module.exports = apiApp; 
 
 
